@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria Urbana</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Adicionando estilo para o botão do menu aumentado e piscante */
+        #menu {
+            background-color: rgba(255, 165, 0, 0.8);
+            padding: 15px 30px;
+            font-size: 24px;
+            text-align: center;
+            color: #fff;
+            border-radius: 10px;
+            position: absolute;
+            top: 75%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            animation: blink 1s infinite;
+        }
+
+        /* Adicionando estilo para o nome da pizzaria */
+        #pizzaria-name-container {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            overflow: hidden; /* Oculta os overflow para evitar problemas com a animação */
+        }
+
+        #pizzaria-name {
+            font-size: 64px;
+            font-family: 'Pacifico', cursive;
+            color: #FFD700;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            white-space: nowrap; /* Impede quebras de linha durante a animação */
+            transform-origin: left center; /* Define o ponto de origem da transformação */
+            animation: revealText 2s forwards; /* Utiliza a animação 'revealText' por 2 segundos */
+        }
+
+        /* Define a animação de revelação do texto */
+        @keyframes revealText {
+            0% {
+                transform: scaleX(0);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        /* Adicionando estilo para a imagem da parallax */
+        .parallax img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        /* Adicionando estilo para o endereço */
+        #endereco {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Adicionando estilo para o rodapé */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Adicionando estilo para o carrossel */
+        .slick-carousel {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            margin-top: 20px;
+            background-image: url('depoimento-background.jpg');
+            background-size: cover;
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        .slick-slide {
+            text-align: center;
+        }
+
+        .slick-slide img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin: 0 auto;
+        }
+
+        .slick-prev,
+        .slick-next {
+            font-size: 24px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid #fff;
+            border-radius: 50%;
+            padding: 10px;
+        }
+
+        .slick-prev {
+            left: -20px;
+        }
+
+        .slick-next {
+            right: -20px;
+        }
+
+        /* Adicionando animação de piscar */
+        @keyframes blink {
+            0%, 100% {
+                color: rgba(255, 165, 0, 0.8);
+            }
+
+            50% {
+                color: #fff;
+            }
+        }
+
+        /* Adicionando estilo para o menu de navegação */
+        nav {
+            text-align: center;
+            background-color: #333;
+            padding: 15px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Adicionando estilo para o ícone do WhatsApp */
+        #whatsapp-icon,
+        #instagram-icon {
+            position: fixed;
+            font-size: 24px;
+            cursor: pointer;
+            animation: shakeIcon 0.5s infinite; /* Adicionando a animação de tremer */
+        }
+
+        #whatsapp-icon {
+            top: 20px;
+            right: 20px;
+            color: #25d366;
+        }
+
+        #instagram-icon {
+            top: 20px;
+            left: 20px;
+            color: #bc2a8d;
+        }
+
+        /* Adicionando estilo para os indicadores do carrossel */
+        .slick-dots {
+            position: absolute;
+            bottom: 3px;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 2;
+            padding: 2;
+        }
+
+        .slick-dots li {
+            margin: 0 5px;
+            display: inline-block;
+        }
+
+        .slick-dots li button {
+            font-size: 0;
+            line-height: 0;
+            display: block;
+            width: 15px;
+            height: 15px;
+            padding: 5px;
+            border: none;
+            border-radius: 50%;
+            background: #fff;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .slick-dots li.slick-active button {
+            background: #FFD700;
+        }
+
+        /* Adicionando regras de estilo para tornar o layout mais responsivo */
+        @media only screen and (max-width: 768px) {
+            /* Modifique conforme necessário para uma experiência responsiva */
+            #pizzaria-name {
+                font-size: 36px;
+            }
+            .slick-carousel {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="image-container">
+
+        <!-- Carrossel de depoimentos -->
+        <div class="slick-carousel">
+            <div>
+                <img src="7a595696-17dc-4c70-a0cf-afc102033ac5.jpg" alt="Depoimento 1">
+                <p>Fiquei impressionado com a qualidade e sabor das pizzas da Pizzaria Urbana! Recomendo a todos.</p>
+                <p>Lavignia meirelles</p>
+            </div>
+            <div>
+                <img src="22810a17-75fc-4e90-80e3-0cea522fa0f5.jpg" alt="Depoimento 2">
+                <p>Simplesmente as melhores pizzas da região! Ingredientes frescos e atendimento excepcional.</p>
+                <p>Daniel Oliveira</p>
+            </div>
+            <div>
+                <img src="betania.jpg" alt="Depoimento 3">
+                <p>Variedade incrível de sabores, ambiente agradável e pizzas de dar água na boca. Uma experiência gastronômica única!</p>
+                <p>Dominique Leclerc</p>
+            </div>
+            <div>
+                <img src="d7dc81ce-7925-4139-a776-fd24edecc3b5.jpg" alt="Depoimento 4">
+                <p>Atendimento rápido, entrega no prazo e pizzas incríveis. Sem dúvida, voltarei a pedir!</p>
+                <p>j. Mourão Gerdal</p>
+            </div>
+            <div>
+                <img src="edd344e4-06d4-4eaa-bd10-f4d12927ada8.jpg" alt="Depoimento 1">
+                <p>Fiquei impressionado com a qualidade e sabor das pizzas da Pizzaria Urbana! Recomendo a todos.</p>
+                <p>Eléonor França</p>
+            </div>
+        </div>
+
+        <!-- Adicionando botão do menu com animação -->
+        <div id="menu" onclick="location.href='menu.html';">Nosso Menu</div>
+
+        <!-- Adicionando o nome da pizzaria com animação -->
+        <div id="pizzaria-name-container">
+            <div id="pizzaria-name">Pizzaria Urbana</div>
+        </div>
+
+        <!-- Adicionando o ícone do WhatsApp como um link clicável -->
+        <a id="whatsapp-icon" href="https://wa.me/557491226397" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>whatsapp</span>
+        </a>
+
+        <!-- Adicionando o ícone do Instagram como um link clicável -->
+        <a id="instagram-icon" href="https://www.instagram.com/oliveira.rad/?hl=en" target="_blank">
+            <i class="fab fa-instagram"></i>
+            <span>instagram</span>
+        </a>
+
+        <div class="parallax">
+            <img src="pexels-ruslan-khmelevsky-6876067.jpg" alt="Imagem 2">
+        </div>
+
+        <!-- Rodapé -->
+        <footer>
+            &copy; 2024 Pizzaria Urbana fictícia. Todos os direitos reservados. | <a href="#contato">Copy</a>
+        </footer>
+    </div>
+
+    <!-- Incorporando o mapa com o endereço fictício -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.6877562488046!2d-40.50174378462291!3d-9.413529411425768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x76a53bea35a61f9%3A0x823bfbaf2a3d6d50!2sAvenida%20Alfa%2C%20Dom%20Jos%C3%A9%20Rodrigues%2C%20Juazeiro%20-%20BA!5e0!3m2!1sen!2sbr!4v1643192876062!5m2!1sen!2sbr" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+    <!-- Seu script JavaScript - mantido como está -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        // Seu script JavaScript
+        $(document).ready(function () {
+            // Inicialize o carrossel de depoimentos
+            $('.slick-carousel').slick({
+                dots: true,
+                arrows: true,
+                prevArrow: $('.slick-prev'),
+                nextArrow: $('.slick-next'),
+                autoplay: true,
+                autoplaySpeed: 5000
+            });
+        });
+    </script>
+</body>
+
+</html>

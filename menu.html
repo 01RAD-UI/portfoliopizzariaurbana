@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Pizzaria Urbana</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffdb58, #ffab00); /* Fundo degradê com cores douradas */
+            color: #333;
+        }
+
+        /* Adicionando estilo para o botão do menu aumentado e piscante */
+        #menu {
+            background-color: rgba(255, 165, 0, 0.8); /* Laranja quase transparente */
+            padding: 15px 30px;
+            font-size: 24px;
+            text-align: center;
+            color: #fff;
+            border-radius: 10px;
+            position: absolute;
+            top: 75%; /* Ajuste a porcentagem conforme necessário */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            animation: blink 1s infinite; /* Animação de piscar */
+        }
+
+        /* Adicionando estilo para o rodapé */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Adicionando estilo para o ícone de voltar à página principal */
+        #back-to-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #333;
+        }
+
+        /* Adicionando estilo para o conteúdo do menu */
+        #menu-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Adicionando estilo para o mapa */
+        #map {
+            width: 100%;
+            height: 300px;
+            margin-top: 20px;
+        }
+
+        /* Estilos para telas pequenas (como celulares) */
+        @media (max-width: 767px) {
+            #menu {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+
+            #menu-content {
+                padding: 10px;
+            }
+
+            #back-to-home {
+                font-size: 20px;
+            }
+        }
+
+        /* Estilos para telas médias (como tablets) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            #menu {
+                font-size: 20px;
+                padding: 12px 24px;
+            }
+
+            #menu-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="menu-content">
+        <!-- Conteúdo do Menu Aqui -->
+        <h1>Menu - Pizzaria Urbana</h1>
+        <!-- Adicione seus itens do menu aqui -->
+
+        <!-- Imagem do Menu -->
+        <img src="menu.jpg" alt="Menu da Pizzaria Urbana" style="width: 100%; max-width: 800px; margin: 20px auto;">
+
+        <!-- Botão de voltar à página principal -->
+        <a id="back-to-home" href="index.html">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
+
+    <!-- Botão de voltar à página principal -->
+    <a id="back-to-home" href="index.html">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Rodapé -->
+    <footer>
+        &copy; 2024 Pizzaria Urbana fictícia. Todos os direitos reservados.
+    </footer>
+
+    <!-- Seu script JavaScript - mantido como está -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        // Seu script JavaScript
+        $(document).ready(function () {
+            // Se houver necessidade de scripts específicos para a página do menu, você pode adicioná-los aqui.
+        });
+    </script>
+</body>
+
+</html>
